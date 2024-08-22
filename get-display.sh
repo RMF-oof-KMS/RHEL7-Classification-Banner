@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the active user's session ID
 SESSION=$(loginctl | grep $(who | awk '{print $1}') | grep "seat0" | awk '{print $1}')
