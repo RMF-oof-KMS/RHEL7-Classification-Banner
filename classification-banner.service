@@ -1,12 +1,13 @@
 [Unit]
 Description=Classification Banner
-After=display-manager.service
+After=graphical-session.target
+Requires=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/python2 /usr/local/sbin/classification-banner.py
 Restart=always
 User=root
-Environment=DISPLAY=:0
+Environment=DISPLAY=$(/usr/local/sbin/get-display.sh)
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical-session.target
